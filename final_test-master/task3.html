@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Задание 1:
+
+            Написать обьект Train у которого будут свойства:
+            -имя,
+            -скорость езды
+            -количество пассажиров
+            Методы:
+            Ехать -> Поезд {name} везет { количество пассажиров} со скоростью {speed}
+            Стоять -> Поезд {name} остановился. Скорость {speed}
+            Подобрать пассажиров -> Увеличивает кол-во пассажиров на Х
+        */    
+
+        function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+        let Train = {
+            name: "train",
+            speed:"200km/hr",
+            passengers:"300",
+            ride() {
+                console.log("Поезд " + this.name + " везет " + this.passengers + " со скоростью " + this.speed)
+            },
+            stop() {
+                this.speed = "0km/hr"
+                console.log("Поезд " + this.name + " остановился. Скорость " + this.speed)
+            },
+            getPassengers() {
+                this.passengers = this.passengers * getRandomIntInclusive(1,10)
+                console.log("Количество пассажиров: " + this.passengers)
+            }
+        }
+
+        Train.ride()
+        Train.stop()
+        Train.getPassengers()
+    </script>
+</body>
+</html>
